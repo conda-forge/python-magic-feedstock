@@ -1,7 +1,7 @@
 {%set name = "python-magic" %}
-{%set version = "0.4.13" %}
+{%set version = "0.4.15" %}
 {%set hash_type = "sha256" %}
-{%set hash_val = "604eace6f665809bebbb07070508dfa8cabb2d7cb05be9a56706c60f864f1289" %}
+{%set hash_val = "f3765c0f582d2dfc72c15f3b5a82aecfae9498bd29ca840d72f37d7bd38bfcd5" %}
 
 package:
   name: {{ name }}
@@ -16,17 +16,17 @@ source:
 
 build:
   number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: python -m pip install --no-deps --ignore-installed .
   skip: True  # [win]
 
 requirements:
   build:
+    - pip
     - python
-    - setuptools
 
   run:
-    - python
     - libmagic
+    - python
 
 test:
   imports:
