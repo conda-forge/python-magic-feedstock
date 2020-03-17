@@ -1,6 +1,5 @@
 {% set name = "python-magic" %}
 {% set version = "0.4.15" %}
-{% set hash_type = "sha256" %}
 {% set hash_val = "f3765c0f582d2dfc72c15f3b5a82aecfae9498bd29ca840d72f37d7bd38bfcd5" %}
 
 package:
@@ -10,13 +9,13 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  {{ hash_type }}: {{ hash_val }}
+  sha256: {{ hash_val }}
   patches:
     - discover-libmagic-dylib.patch  # [osx]
 
 build:
-  number: 1001
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1002
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: True  # [win]
 
 requirements:
