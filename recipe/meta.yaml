@@ -14,7 +14,7 @@ source:
     - discover-libmagic-dylib.patch  # [osx]
 
 build:
-  number: 1002
+  number: 1003
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: True  # [win]
 
