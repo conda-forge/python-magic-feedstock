@@ -1,6 +1,6 @@
 {% set name = "python-magic" %}
-{% set version = "0.4.15" %}
-{% set hash_val = "f3765c0f582d2dfc72c15f3b5a82aecfae9498bd29ca840d72f37d7bd38bfcd5" %}
+{% set version = "0.4.18" %}
+{% set hash_val = "b757db2a5289ea3f1ced9e60f072965243ea43a2221430048fd8cacab17be0ce" %}
 
 package:
   name: {{ name }}
@@ -14,9 +14,9 @@ source:
     - discover-libmagic-dylib.patch  # [osx]
 
 build:
-  number: 1003
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
-  skip: True  # [win]
+  skip: true  # [win]
 
 requirements:
   host:
@@ -35,7 +35,7 @@ about:
   license: MIT
   license_file: LICENSE
   license_family: MIT
-  summary: 'File type identification using libmagic'
+  summary: File type identification using libmagic
 
 extra:
   recipe-maintainers:
