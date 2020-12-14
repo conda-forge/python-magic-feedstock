@@ -11,7 +11,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ hash_val }}
   patches:
-    - discover-libmagic-dylib.patch  # [osx]
+    # - discover-libmagic-dylib.patch  # [osx]
 
 build:
   number: 0
