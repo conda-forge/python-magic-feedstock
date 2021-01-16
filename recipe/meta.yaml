@@ -1,6 +1,6 @@
 {% set name = "python-magic" %}
-{% set version = "0.4.18" %}
-{% set hash_val = "b757db2a5289ea3f1ced9e60f072965243ea43a2221430048fd8cacab17be0ce" %}
+{% set version = "0.4.20" %}
+{% set hash_val = "0cc52ccad086c377b9194014e3dbf98d94b194344630172510a6a3e716b47801" %}
 
 package:
   name: {{ name }}
