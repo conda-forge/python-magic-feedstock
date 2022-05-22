@@ -1,6 +1,6 @@
 {% set name = "python-magic" %}
-{% set version = "0.4.25" %}
-{% set hash_val = "21f5f542aa0330f5c8a64442528542f6215c8e18d2466b399b0d9d39356d83fc" %}
+{% set version = "0.4.26" %}
+{% set hash_val = "8262c13001f904ad5b724d38b5e5b5f17ec0450ae249def398a62e4e33108a50" %}
 
 package:
   name: {{ name }}
@@ -14,7 +14,7 @@ source:
     # - discover-libmagic-dylib.patch  # [osx]
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [win]
 
