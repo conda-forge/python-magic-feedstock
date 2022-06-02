@@ -1,0 +1,21 @@
+diff --git a/magic/__init__.py b/magic/__init__.py
+index bab7c7b..f589374 100644
+--- a/magic/__init__.py
++++ b/magic/__init__.py
+@@ -16,6 +16,7 @@ Usage:
+ 
+ """
+ 
++import os
+ import sys
+ import glob
+ import ctypes
+@@ -53,6 +54,8 @@ class Magic:
+         raw - Do not try to decode "non-printable" chars.
+         extension - Print a slash-separated list of valid extensions for the file type found.
+         """
++        if not magic_file:
++            os.path.join(sys.prefix, 'share', 'misc', 'magic.mgc')
+         self.flags = MAGIC_NONE
+         if mime:
+             self.flags |= MAGIC_MIME_TYPE

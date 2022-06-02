@@ -12,9 +12,10 @@ source:
   sha256: {{ hash_val }}
   patches:
     # - discover-libmagic-dylib.patch  # [osx]
+      - 0001-load-magic-file.patch
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [win]
 
