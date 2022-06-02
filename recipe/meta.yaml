@@ -33,6 +33,8 @@ requirements:
 test:
   imports:
     - magic
+  commands:
+    - python -c "import magic; magic.Magic()"
 
 about:
   home: http://github.com/ahupp/python-magic
