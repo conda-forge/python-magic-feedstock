@@ -15,7 +15,7 @@ source:
       - 0001-load-magic-file.patch
 
 build:
-  number: 2
+  number: 3
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [win]
 
