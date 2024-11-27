@@ -1,34 +1,31 @@
 {% set name = "python-magic" %}
 {% set version = "0.4.27" %}
-{% set hash_val = "c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ hash_val }}
+  sha256: c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b
   patches:
     # - discover-libmagic-dylib.patch  # [osx]
       - 0001-load-magic-file.patch
 
 build:
   number: 5
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
-  skip: true  # [win]
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation 
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - pip
     - python
+    - setuptools
   run:
     - libmagic
     - python
+    - __unix  # [unix]
 
 test:
   imports:
