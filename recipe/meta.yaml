@@ -20,17 +20,21 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python {{ python_min }}
     - setuptools
   run:
     - libmagic
-    - python
+    - python >={{ python_min }}
     - __unix  # [unix]
 
 test:
+  requires:
+    - python {{ python_min }}
+    - pip
   imports:
     - magic
   commands:
+    - pip check
     - python -c "import magic; magic.Magic()"
 
 about:
