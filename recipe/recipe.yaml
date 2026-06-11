@@ -23,15 +23,18 @@ requirements:
   run:
     - libmagic
     - python >=${{ python_min }}
-    - if: unix
-      then: __unix
+    # https://github.com/conda-forge/python-magic-feedstock/issues/9
+    # https://github.com/conda-forge/file-feedstock/issues/3
+    - __unix
 
 tests:
   - python:
       imports:
         - magic
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - requirements:
       run:
         - python ${{ python_min }}.*
