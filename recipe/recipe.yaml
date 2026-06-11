@@ -1,0 +1,50 @@
+context:
+  name: python-magic
+  version: 0.4.27
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b
+
+build:
+  number: 6
+  noarch: python
+  script: python -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - libmagic
+    - python >=${{ python_min }}
+    - if: unix
+      then: __unix
+
+tests:
+  - python:
+      imports:
+        - magic
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - python -c "import magic; magic.Magic()"
+
+about:
+  homepage: https://github.com/ahupp/python-magic
+  license: MIT
+  license_file: LICENSE
+  summary: File type identification using libmagic
+
+extra:
+  recipe-maintainers:
+    - mariusvniekerk
+    - pavelzw
