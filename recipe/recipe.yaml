@@ -1,13 +1,12 @@
 context:
-  name: python-magic
   version: 0.4.27
 
 package:
-  name: ${{ name }}
+  name: python-magic
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/python-magic/python-magic-${{ version }}.tar.gz
   sha256: c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b
 
 build:
