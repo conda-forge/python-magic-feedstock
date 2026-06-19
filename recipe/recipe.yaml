@@ -10,7 +10,7 @@ source:
   sha256: c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b
 
 build:
-  number: 6
+  number: 7
   noarch: python
   script: python -m pip install . -vv --no-deps --no-build-isolation
 
@@ -22,9 +22,6 @@ requirements:
   run:
     - libmagic
     - python >=${{ python_min }}
-    # https://github.com/conda-forge/python-magic-feedstock/issues/9
-    # https://github.com/conda-forge/file-feedstock/issues/3
-    - __unix
 
 tests:
   - python:
